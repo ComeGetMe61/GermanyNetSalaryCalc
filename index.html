@@ -4,86 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brutto-Netto-Rechner 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Brutto-Netto-Rechner 2025</h1>
+        <header class="app-header">
+            <h1>Brutto-Netto-Rechner</h1>
+            <p class="subtitle">Berechnen Sie Ihr Nettogehalt für 2025 (basierend auf Werten von 2024)</p>
+        </header>
+
         <form id="salary-form">
-            <div class="form-group">
-                <label for="gross-salary">Bruttolohn (€)</label>
-                <input type="number" id="gross-salary" value="50000" required>
-            </div>
-            <div class="form-group">
-                <label for="period">Zeitraum</label>
-                <select id="period">
-                    <option value="year">Jährlich</option>
-                    <option value="month">Monatlich</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="tax-class">Steuerklasse</label>
-                <select id="tax-class">
-                    <option value="1">I</option>
-                    <option value="2">II</option>
-                    <option value="3">III</option>
-                    <option value="4">IV</option>
-                    <option value="5">V</option>
-                    <option value="6">VI</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="church-tax">Kirchensteuerpflichtig</label>
-                <select id="church-tax">
-                    <option value="yes">Ja</option>
-                    <option value="no">Nein</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="state">Bundesland</label>
-                <select id="state">
-                    <option value="BW">Baden-Württemberg</option>
-                    <option value="BY">Bayern</option>
-                    <option value="BE">Berlin</option>
-                    <option value="BB">Brandenburg</option>
-                    <option value="HB">Bremen</option>
-                    <option value="HH">Hamburg</option>
-                    <option value="HE">Hessen</option>
-                    <option value="MV">Mecklenburg-Vorpommern</option>
-                    <option value="NI">Niedersachsen</option>
-                    <option value="NW">Nordrhein-Westfalen</option>
-                    <option value="RP">Rheinland-Pfalz</option>
-                    <option value="SL">Saarland</option>
-                    <option value="SN">Sachsen</option>
-                    <option value="ST">Sachsen-Anhalt</option>
-                    <option value="SH">Schleswig-Holstein</option>
-                    <option value="TH">Thüringen</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="children">Anzahl der Kinder</label>
-                 <input type="number" id="children" value="0" min="0">
-            </div>
-            <div class="form-group">
-                 <label for="health-insurance-additional-rate">Zusatzbeitrag Krankenversicherung (%)</label>
-                 <input type="number" id="health-insurance-additional-rate" value="1.7" step="0.1">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="gross-salary">Bruttolohn (€)</label>
+                    <input type="number" id="gross-salary" value="5000" required>
+                </div>
+                <div class="form-group">
+                    <label for="period">Zeitraum</label>
+                    <select id="period">
+                        <option value="month">Monatlich</option>
+                        <option value="year">Jährlich</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tax-class">Steuerklasse</label>
+                    <select id="tax-class">
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4" selected>IV</option>
+                        <option value="5">V</option>
+                        <option value="6">VI</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="state">Bundesland</label>
+                    <select id="state">
+                        <option value="BW">Baden-Württemberg</option>
+                        <option value="BY" selected>Bayern</option>
+                        <option value="BE">Berlin</option>
+                        <option value="BB">Brandenburg</option>
+                        <option value="HB">Bremen</option>
+                        <option value="HH">Hamburg</option>
+                        <option value="HE">Hessen</option>
+                        <option value="MV">Mecklenburg-Vorpommern</option>
+                        <option value="NI">Niedersachsen</option>
+                        <option value="NW">Nordrhein-Westfalen</option>
+                        <option value="RP">Rheinland-Pfalz</option>
+                        <option value="SL">Saarland</option>
+                        <option value="SN">Sachsen</option>
+                        <option value="ST">Sachsen-Anhalt</option>
+                        <option value="SH">Schleswig-Holstein</option>
+                        <option value="TH">Thüringen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="children">Anzahl Kinder</label>
+                     <input type="number" id="children" value="0" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="church-tax">Kirchensteuer</label>
+                    <select id="church-tax">
+                        <option value="no">Nein</option>
+                        <option value="yes">Ja</option>
+                    </select>
+                </div>
+                 <div class="form-group full-width">
+                     <label for="health-insurance-additional-rate">Zusatzbeitrag Krankenversicherung (%)</label>
+                     <input type="number" id="health-insurance-additional-rate" value="2.2" step="0.1">
+                </div>
             </div>
             <button type="submit">Berechnen</button>
         </form>
+
         <div id="result" class="hidden">
-            <h2>Ergebnis</h2>
-            <table>
-                <tr><th>Bruttogehalt (jährlich)</th><td id="gross-salary-result"></td></tr>
-                <tr><th>Lohnsteuer</th><td id="income-tax-result"></td></tr>
-                <tr><th>Solidaritätszuschlag</th><td id="solidarity-tax-result"></td></tr>
-                <tr><th>Kirchensteuer</th><td id="church-tax-result"></td></tr>
-                <tr><th>Rentenversicherung</th><td id="pension-insurance-result"></td></tr>
-                <tr><th>Arbeitslosenversicherung</th><td id="unemployment-insurance-result"></td></tr>
-                <tr><th>Krankenversicherung</th><td id="health-insurance-result"></td></tr>
-                <tr><th>Pflegeversicherung</th><td id="care-insurance-result"></td></tr>
-                <tr class="net-salary"><th>Nettogehalt (jährlich)</th><td id="net-salary-result"></td></tr>
-                <tr class="net-salary"><th>Nettogehalt (monatlich)</th><td id="net-salary-monthly-result"></td></tr>
-            </table>
+            <div class="result-header">
+                <h2>Ihre Berechnung</h2>
+                <div>
+                    <span id="result-period-monthly">Monatlich</span>
+                    <span id="result-period-yearly">Jährlich</span>
+                </div>
+            </div>
+
+            <div class="result-row main">
+                <span class="label">Bruttogehalt</span>
+                <span class="value" id="gross-salary-monthly"></span>
+                <span class="value" id="gross-salary-yearly"></span>
+            </div>
+
+            <div class="result-section-header">Steuern</div>
+            <div class="result-row">
+                <span class="label">Lohnsteuer</span>
+                <span class="value" id="income-tax-monthly"></span>
+                <span class="value" id="income-tax-yearly"></span>
+            </div>
+            <div class="result-row">
+                <span class="label">Solidaritätszuschlag</span>
+                <span class="value" id="solidarity-tax-monthly"></span>
+                <span class="value" id="solidarity-tax-yearly"></span>
+            </div>
+            <div class="result-row">
+                <span class="label">Kirchensteuer</span>
+                <span class="value" id="church-tax-monthly"></span>
+                <span class="value" id="church-tax-yearly"></span>
+            </div>
+            
+            <div class="result-section-header">Sozialversicherungen</div>
+            <div class="result-row">
+                <span class="label">Rentenversicherung</span>
+                <span class="value" id="pension-insurance-monthly"></span>
+                <span class="value" id="pension-insurance-yearly"></span>
+            </div>
+             <div class="result-row">
+                <span class="label">Arbeitslosenversicherung</span>
+                <span class="value" id="unemployment-insurance-monthly"></span>
+                <span class="value" id="unemployment-insurance-yearly"></span>
+            </div>
+            <div class="result-row">
+                <span class="label">Krankenversicherung</span>
+                <span class="value" id="health-insurance-monthly"></span>
+                <span class="value" id="health-insurance-yearly"></span>
+            </div>
+            <div class="result-row">
+                <span class="label">Pflegeversicherung</span>
+                <span class="value" id="care-insurance-monthly"></span>
+                <span class="value" id="care-insurance-yearly"></span>
+            </div>
+
+            <div class="result-row net">
+                <span class="label">Nettogehalt</span>
+                <span class="value" id="net-salary-monthly"></span>
+                <span class="value" id="net-salary-yearly"></span>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

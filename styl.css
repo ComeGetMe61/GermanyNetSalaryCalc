@@ -1,84 +1,181 @@
+/* --- Basic Setup & Variables --- */
+:root {
+    --primary-color: #0052cc;
+    --primary-hover: #0041a3;
+    --text-dark: #212529;
+    --text-light: #6c757d;
+    --background-color: #f8f9fa;
+    --panel-background: #ffffff;
+    --border-color: #dee2e6;
+    --font-family: 'Roboto', sans-serif;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-dark);
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    padding: 2rem;
     margin: 0;
 }
 
 .container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    max-width: 600px;
+    background-color: var(--panel-background);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    max-width: 700px;
     width: 100%;
 }
 
-h1, h2 {
+/* --- Header --- */
+.app-header {
     text-align: center;
-    color: #333;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+}
+
+h1 {
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* --- Form Styling --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    grid-column: 1 / -1;
 }
 
 label {
-    display: block;
     margin-bottom: 0.5rem;
-    color: #555;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 input, select {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
 }
 
 button {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem;
     border: none;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-hover);
 }
 
+/* --- Result Section --- */
 #result {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .hidden {
     display: none;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+.result-header, .result-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 0.75rem 0;
 }
 
-th, td {
-    padding: 0.75rem;
-    border-bottom: 1px solid #ddd;
+.result-header {
+    font-weight: 700;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.result-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
     text-align: left;
+    margin: 0;
 }
 
-th {
-    width: 60%;
+#result-period-monthly, #result-period-yearly {
+    text-align: right;
 }
 
-.net-salary th, .net-salary td {
-    font-weight: bold;
-    color: #007bff;
+.result-section-header {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.result-row {
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.result-row .label {
+    font-weight: 500;
+}
+
+.result-row .value {
+    text-align: right;
+    font-family: monospace, sans-serif;
+    font-size: 1.05rem;
+}
+
+.result-row.main, .result-row.net {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.result-row.net {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+.result-row.net .value {
+    color: var(--primary-color);
 }
